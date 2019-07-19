@@ -1,0 +1,19 @@
+<div ng-controller="settingsCtrl">
+  <div style="width:66%; margin:0 auto" layout="column" layout-align="center center">
+    <h3>Settings user</h3>
+    <div>
+      <p>Your name is : {{name}}</p>
+      <hr/>
+      <p>Your email address is : {{email}}</p>
+    </div>
+    <div>
+      <form>
+        <md-input-container>
+          <label for="password">change your password :</label>
+          <input class="form-control" type="password" name="password" ng-model="password" required/>
+        </md-input-container>
+        <md-button class="md-raised" ng-click="setObject('name', 'password', 'email')">Update</md-button>
+      </form>
+    </div>
+  </div>
+</div>

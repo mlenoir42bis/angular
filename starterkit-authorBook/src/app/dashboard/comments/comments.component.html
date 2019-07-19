@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-body">
+      <h4 class="card-title">Recent Comments</h4>
+  </div>
+  <div class="comment-widgets" [perfectScrollbar]="config">
+      <!-- Comment Row -->
+      <div class="d-flex flex-row comment-row m-t-0" *ngFor="let item of comments">
+          <div class="p-2">
+              <img src="assets/images/users/1.jpg" alt="user" width="50" class="rounded-circle">
+          </div>
+          <div class="comment-text w-100">
+              <h6 class="font-medium">{{ item.userName }}</h6>
+              <span class="m-b-15 d-block"> {{ item.comment }} </span>
+              <div class="comment-footer">
+                  <span class="text-muted float-right">{{ item.postDate }}</span>
+                  <span class="float-left">
+                     <div  class="myIcon" *ngFor="let icon of item.rate" style="display: inline-block;">
+                         <span [innerHtml]=" icon "></span>
+                     </div>
+                    </span>
+                </div>
+          </div>
+      </div>
+      <!-- Comment Row -->
+  </div>
+</div>
+

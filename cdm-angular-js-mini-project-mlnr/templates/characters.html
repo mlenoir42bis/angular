@@ -1,0 +1,50 @@
+<div ng-controller="charactersCtrl">
+  <h1 ng-show="loading">LOADING...</h1>
+
+  <div ng-show="!loading">
+
+    <div class='md-padding' layout="row" layout-align="space-around center" style="width:66%; margin:0 auto">
+      <md-input-container>
+        <label for="name">Search by name :</label>
+        <input type="text" placeholder="Put your key word" name="name" ng-model="name">
+      </md-input-container>
+      <md-input-container>
+        <label for="comics">Search by comics name :</label>
+        <input type="text" placeholder="Put your key word" name="comics" ng-model="comics">
+      </md-input-container>
+      <md-input-container>
+        <label for="stories">Search by stories name :</label>
+        <input type="text" placeholder="Put your key word" name="stories" ng-model="stories">
+      </md-input-container>
+      <my-refresh>Refresh</my-refresh>
+    </div>
+
+    <my-marvel linked="#!/characters-details/{{data.id}}"></my-marvel>
+  </div>
+  <div ng-show="error"><p>{{error}}</p></div>
+
+</div>
+
+<!--
+          <h2 style="text-align: center;">{{character.name}}</h2>
+          <p style="text-align:center">{{ character.description }}</p>
+
+          <div ng-show="character.comics.items.length">
+            <h3>Comics</h3>
+            <ul ng-repeat="comic in character.comics.items">
+              <li>{{ comic.name }}</li>
+            </ul>
+          </div>
+          <div ng-show="character.series.items.length">
+            <h3>Series</h3>
+            <ul ng-repeat="serie in character.series.items">
+              <li>{{ serie.name }}</li>
+            </ul>
+          <div>
+          <div ng-show="character.stories.items.length">
+            <h3>Stories</h3>
+            <ul ng-repeat="story in character.stories.items">
+               <li>{{ story.name }}</li>
+            </ul>
+          <div>
+-->

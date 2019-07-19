@@ -1,0 +1,14 @@
+
+<div class='md-padding' layout="row" layout-wrap style="width:66%; margin:0 auto">
+  <md-card ng-repeat="data in datas | matchName:name | matchComic:comics | matchStories:stories">
+    <md-card-content>
+      <div style="margin:0 auto; height: 200px;" layout="column" layout-align="center center">
+        <img style="max-width: 150px; margin:0 auto"
+        src="{{ data.thumbnail.path + '.' + data.thumbnail.extension  }}" alt="">
+      </div>
+      <div layout="row" layout-align="center end">
+        <md-button class="md-raised"><a ng-href="{{link}}{{data.id}}">Detail</a></md-button>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>

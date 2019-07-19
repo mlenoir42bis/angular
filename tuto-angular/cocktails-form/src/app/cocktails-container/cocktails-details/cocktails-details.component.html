@@ -1,0 +1,23 @@
+
+  <div class="row">
+    <div class="col">
+        <img class="img-fluid" style="max-height:150px;" [src]="cocktail.img" [alt]="cocktail.name">
+    </div>
+    <div class="col">
+        <h3>{{ cocktail.name }}</h3>
+        <p>{{ cocktail.desc }}</p>
+      </div>
+  </div>
+  <hr>
+  <div class="row">
+    <ul class="list-group col">
+      <li class="list-group-item list-group-item-action" *ngFor="let ingredient of cocktail.ingredients">
+        {{ ingredient.name }}
+        <span class="badge badge-default badge-pill ml-auto">{{ ingredient.quantity }}</span>
+      </li>
+    </ul>
+  </div>
+  <div class="row" style="margin-top: 15px;">
+    <button class="btn btn-success" style="display: block; margin: 0 auto;" [routerLink]="getUrl()">Editer cocktail</button>
+    <button class="btn btn-secondary" (click)="addPanier(cocktail.ingredients)"> Ajoutez au panier </button>
+  </div>

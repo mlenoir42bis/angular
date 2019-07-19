@@ -1,0 +1,120 @@
+<!-- row -->
+<div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title"></h4>
+                    <form action="#">
+                        <div class="form-body">
+
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <form class="m-t-20">
+                                                        <div class="input-group mb-3">
+                                                            <input #box (keyup)="addHero(box.value)" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                                                            <div class="input-group-append">
+                                                                <button class="btn btn-info" type="button"><i class="sl-icon-magnifier"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <button type="button" (click)="open2($event, modal1)" class="btn btn-info m-r-5" style="display: block; margin: 0 auto; margin-top: 20px;">Add book</button>
+                                                
+                                                    <ng-template #modal1 let-c="close" let-d="dismiss">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Add book</h4>
+                                                            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form class="form-horizontal m-t-20" id="formAddBook" #formAddBook="ngForm" (ngSubmit)="onSubmit(formAddBook)">
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text" id="basic-addon1"><i class="ti-email"></i></span>
+                                                                    </div>
+                                                                    <input name="name" [(ngModel)]="name" type="text" class="form-control form-control-lg" placeholder="Name Book" aria-label="name" aria-describedby="basic-addon1" required>
+                                                                </div>
+                                                                <div class="form-group text-center">
+                                                                    <div class="col-xs-12 p-b-20">
+                                                                        <button class="btn btn-block btn-sm btn-info" style="display:block; margin: 0 auto; width: 25%;" type="submit">Ok</button>
+                                                                    </div>
+                                                                </div>    
+                                                            </form>
+                                                        </div>
+                                                    </ng-template>
+
+                                                </div>
+                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </div>
+                        <!--
+                        <div class="form-actions">
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-info m-r-5">Submit</button>
+                                <button type="reset" class="btn btn-dark">Reset</button>
+                            </div>
+                        </div>
+                        -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- row -->
+
+    <h4>Your novel</h4>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+
+            <div class="card" *ngFor="let item of arr | bookFilter:box">
+            
+                <div class="row" style="padding: 25px;" (click)="redirectBook(item.id)">
+
+                        <div class="col">
+                            <div class="pict-novel" style="background-color: 1px solid black; ">
+                                <img src="assets/images/logo.png" style="height: 100px; width: 100px; display: block; margin: 0 auto;">
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <h5>{{item.name}}</h5>
+                            <p>Follower : {{item.followers}}</p>
+                            <p>rating : {{item.rating}}</p>
+                        </div>
+
+                        <div class="col">
+                            <button class="btn btn-info m-r-5" style="display:block; margin: 0 auto;" (click)="addChapter(item.id)">Add chapter</button>
+                            <span (click)="open2($event, modal2)" class="" style="display:block; margin: 0 auto; margin-top: 50px; width: 25px; height: 25px;" ><i  class="sl-icon-trash"></i></span>
+    
+                            <ng-template #modal2 let-c="close" let-d="dismiss">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Do you really want to delete the book ? </h4>
+                                    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <button style="width: 100%; display: block; margin: 0 auto;" type="button" class="btn btn-info" (click)="delete($event)" attr.bookId="{{item.id}}">Yes</button>
+                                    <button style="width: 100%; display: block; margin: 0 auto; margin-top: 15px;" type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
+                                </div>
+                                <div class="modal-footer">
+                                </div>
+                            </ng-template>
+                        </div>                        
+
+                </div>
+            </div>
+
+        </div>
+    </div>

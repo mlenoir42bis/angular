@@ -1,0 +1,43 @@
+
+  <div ng-controller="storageCtrl">
+    <div layout="row" layout-wrap>
+      <div flex="75">
+
+        <span>Name: {{name}}</span>
+        <hr />
+        <span>Age: {{age}}</span>
+        <hr />
+        <span>Nickname: {{nickname}}</span>
+        <hr />
+
+        <button type="button" class="btn btn-primary" name="button" ng-click="set()">SET INFOS</button>
+        <button type="button" class="btn btn-primary" name="button" ng-click="get('name')"> GET NAME</button>
+        <button type="button" class="btn btn-primary" name="button" ng-click="get('age')"> GET AGE</button>
+        <button type="button" class="btn btn-primary" name="button" ng-click="get('nickname')"> GET NICKNAME</button>
+        <hr />
+        <button type="button" class="btn btn-danger" name="button" ng-click="remove('age')"> REMOVE AGE</button>
+        <button type="button" class="btn btn-danger" name="button" ng-click="remove('nickname')"> REMOVE NICKNAME</button>
+        <hr />
+
+        <span>Object: {{user}}</span>
+        <hr />
+
+        <button type="button" class="btn btn-primary"name="button" ng-click="setObject('name', 'age')"> SET USER</button>
+        <button type="button" class="btn btn-primary" name="button" ng-click="getObject('user')"> GET USER</button>
+        <hr />
+        <button type="button" class="btn btn-danger" name="button" ng-click="destroy()"> FINISH HIM!</button>
+      </div>
+
+      <div flex="25">
+        <md-input-container>
+          <label for="name">Name</label>
+          <input class="form-control" type="text" name="name" ng-model="name" />
+        </md-input-container>
+
+        <md-input-container>
+          <label for="age">Age</label>
+          <input class="form-control" type="text" name="age" ng-model="age" />
+        </md-input-container>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,76 @@
+<div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url(assets/images/big/auth-bg.jpg) no-repeat center center;">
+    <div class="auth-box">
+        <div>
+            <div class="logo">
+                <span class="db"><img style="width: 50px; height: 50px;" src="assets/images/logo.png" alt="logo" /></span>
+                <h5 class="font-medium m-b-20">Sign Up to Neopload</h5>
+            </div>
+            <!-- Form -->
+            <div class="row">
+                <div class="col-12">
+                    <form class="form-horizontal m-t-20" id="signupform" novalidate #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
+                        <div class="form-group row ">
+                            <div class="col-12 ">
+                                <input [formControl]="authorname" class="form-control form-control-lg" type="text" required placeholder="Author's Name">
+                                <div *ngIf="authorname.invalid && (authorname.dirty || authorname.touched)" class="alert alert-danger">
+                                    <div *ngIf="authorname.errors.required" style="min-width:100%; width: 100%;"> Your name is required. </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12 ">
+                                <input [formControl]="email" class="form-control form-control-lg" type="text" required placeholder="Email">
+                                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                                    <div *ngIf="email.errors.required" style="min-width:100%; width: 100%;"> Your email is required. </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12 ">
+                                <input (keyup)=eventVerifyPassword($event.keyCode) [formControl]="password" class="form-control form-control-lg" type="password" required placeholder="Password">
+                                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                                    <div *ngIf="password.errors.required" style="min-width:100%; width: 100%;"> Your password is required. </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12 ">
+                                <input (keyup)=eventVerifyPassword($event.keyCode) [formControl]="verifyPassword" class="form-control form-control-lg" type="password" placeholder="Confirm Password">
+                                <div *ngIf="!passwordbool" class="alert alert-danger">
+                                    <div *ngIf="!passwordbool" style="min-width:100%; width: 100%;"> The password is not similar to the verification password</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12 ">
+                                <div class="custom-control custom-checkbox">
+                                    <input (change)="eventCheckTerm($event)" [formControl]="checkTerm" type="checkbox" class="custom-control-input" id="customCheck1" required>
+                                    <label class="custom-control-label" for="customCheck1">I agree to all <a href="javascript:void(0)">Terms</a></label>
+                                    <div *ngIf="!termbool" class="alert alert-danger">
+                                        <div *ngIf="!termbool" style="min-width:100%; width: 100%;"> Accept terms of use is mandatory </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-center ">
+                            <div *ngIf="errorMsgbool" class="alert alert-danger">
+                                <div *ngIf="errorMsgbool" style="min-width:100%; width: 100%;"> {{errorMsg}} </div>
+                            </div>
+                            <div *ngIf="requestMsgbool" class="alert alert-danger">
+                                <div *ngIf="requestMsgbool" style="min-width:100%; width: 100%;"> {{requestMsg}} </div>
+                            </div>
+                            <div class="col-xs-12 p-b-20 ">
+                                <button class="btn btn-block btn-lg btn-info " type="submit" >SIGN UP</button>
+                            </div>
+                        </div>
+                        <div class="form-group m-b-0 m-t-10 ">
+                            <div class="col-sm-12 text-center ">
+                                Already have an account? <a href="#/authentication/login " class="text-info m-l-5 "><b>Sign In</b></a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

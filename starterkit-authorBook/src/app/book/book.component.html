@@ -1,0 +1,112 @@
+<h4>Your novel</h4>
+<hr>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="row" style="padding: 25px;">
+
+            
+                <div class="col-2">
+                    <div class="pict-novel" style="background-color: 2px solid black; ">
+                        <img src="assets/images/logo.png" style="height: 100px; width: 100px; display: block; margin: 0 auto;">
+                    </div>
+                </div>
+                <div class="col-5">
+
+                    <h5>{{ name }}</h5>
+                    
+                    <p><strong>Author :</strong> 
+                    <tag-input  [(ngModel)]="itemsAuthor"
+                                [identifyBy]="'id'"
+                                [displayBy]="'name'"
+                                (onRemove)="onRemoveAuthor($event)"
+                                (onAdd)="onAddAuthor($event)"
+                    >              
+                    </tag-input>
+                    </p>
+
+                    <p><strong>Translator :</strong>
+                        <tag-input  [(ngModel)]="itemsTranslator"
+                        [identifyBy]="'id'"
+                        [displayBy]="'name'"
+                        (onRemove)="onRemoveTranslator($event)"
+                        (onAdd)="onAddTranslator($event)"
+                        >              
+                        </tag-input>
+                    </p>
+                    
+                    <p><strong>Frequency :</strong> tchap/week</p>
+
+                    <p><strong>Description</strong></p>
+                    <textarea class="form-control" (focusout)="focusOutDescription($event)" >{{ description }}</textarea>
+
+                </div>
+                <div class="col-5">
+                    
+                  <h5>Genre</h5>
+
+                    <form [formGroup]="myFormGenre" >
+                        <ng-multiselect-dropdown
+                            name="genre"
+                            [data]="genres"
+                            formControlName="genre"
+                            [settings]="dropdownSettings"
+                            (onSelect)="onItemSelectGenre($event)"
+                            (onDeSelect)="onItemDeselectGenre($event)"
+                            [(ngModel)]="selectedItemsGenre"
+                        >
+                        </ng-multiselect-dropdown>
+                    </form>
+
+                  <h5 style="margin-top: 10px;">TAGS</h5>
+                
+                    <form [formGroup]="myFormTag" >
+                        <ng-multiselect-dropdown
+                            name="tag"
+                            [data]="tags"
+                            formControlName="tag"
+                            [settings]="dropdownSettings"
+                            (onSelect)="onItemSelectTag($event)"
+                            (onDeSelect)="onItemDeselectTag($event)"
+                            [(ngModel)]="selectedItemsTag"
+                        >
+                        </ng-multiselect-dropdown>
+                    </form>
+
+                </div>
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<h4>List of chapter</h4>
+<hr>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="row" style="padding: 25px;">
+              <div class="row">
+                  <button (click)="addChapter()" class='btn btn-info btn-md-5'><i style="display: inline-block" class="sl-icon-plus"></i><h5 style="margin-left: 5px; display: inline-block">Add a new chapter</h5></button>
+              </div>
+              <hr>
+              <div style=" height: 25px; width: 100%">
+
+              </div>
+              <div class="row myList-chapter" style="width: 100%;">
+                <div class="col-12" *ngFor="let item of detailsChapter">
+                    <div class="row listBook" (click)="updateChapter(item.chapterId)">
+                        <div class="col-10">
+                            <p><span style="color: greenyellow"> {{item.chapterVolume}} . {{item.chapterNumber}} . {{item.language}} </span><strong>Chapter {{item.chapterNumber}}: {{item.chapterName}} </strong></p>
+                        </div>
+                        <div class="col-2">
+                        <p style="color: grey; font-style: italic;">{{item.postDate}}</p>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

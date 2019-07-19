@@ -1,0 +1,13 @@
+<div ng-controller="comicsDetailsCtrl">
+
+    <h1 ng-show="loading">LOADING...</h1>
+    <div ng-show="!loading">
+      <div style="width:66%; margin:0 auto" ng-show="!loading" layout="column" layout-align="center center">
+          <h2 style="text-center">{{ comic.title }}</h2>
+          <p>{{ comic.description }}</p>
+          <img style="max-width: 150px; margin: 0 auto" src="{{ comic.thumbnail.path + '.' + comic.thumbnail.extension  }}" alt="">
+          <md-button class="md-raised"><a href="#!/comics">Retour</a></md-button>
+      </div>
+    </div>
+    
+</div>

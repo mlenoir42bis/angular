@@ -1,0 +1,28 @@
+<div ng-controller="charactersDetailsCtrl">
+<h1 ng-show="loading">LOADING...</h1>
+
+<div ng-show="!loading">
+  <div style="width:66%; margin:0 auto" layout="column" layout-align="center center">
+    <my-marvel poil="re"> </my-marvel>
+    <h2 style="text-align: center">{{ character.name }}</h2>
+    <p>{{ character.description }}</p>
+    <img style="max-width: 150px; margin: 0 auto" src="{{ character.thumbnail.path + '.' + character.thumbnail.extension  }}" alt="">
+      <div style="text-align: left;">
+        <h3>Comics</h3>
+          <ul ng-repeat="comic in character.comics.items">
+          <li>{{ comic.name }}</li>
+          </ul>
+        <h3>Series</h3>
+          <ul ng-repeat="serie in character.series.items">
+          <li>{{ serie.name }}</li>
+          </ul>
+        <h3>Stories</h3>
+          <ul ng-repeat="story in character.stories.items">
+          <li>{{ story.name }}</li>
+          </ul>
+      </div>
+    <md-button class="md-raised"><a href="#!/characters">Retour</a></md-button>
+  </div>
+<div ng-show="error"><p>{{error}}</p></div>
+</div>
+</div>

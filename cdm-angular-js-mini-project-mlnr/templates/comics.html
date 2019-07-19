@@ -1,0 +1,9 @@
+<div ng-controller="comicsCtrl">
+  <h1 ng-show="loading">LOADING...</h1>
+
+  <div ng-show="!loading">
+    <my-marvel linked="#!/comics-details/{{data.id}}"></my-marvel>
+  </div>
+  <div ng-show="error"><p>{{error}}</p></div>
+
+</div>

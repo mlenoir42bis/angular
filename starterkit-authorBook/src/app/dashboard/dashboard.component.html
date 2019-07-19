@@ -1,0 +1,31 @@
+<div *ngIf="msg" class="alert alert-danger">
+  <div style="min-width:100%; width: 100%; text-align: center;" >{{msg}}</div>
+</div> 
+
+<div class="row">
+  <div class="col-7">
+
+    <app-book-details></app-book-details>
+
+    <app-visits-bounce></app-visits-bounce>
+
+  </div>
+  <div class="col-5">
+
+    <app-comments></app-comments>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-4">
+
+    <app-device-visits></app-device-visits>
+  
+  </div>
+  <div class="col-8">
+  
+    <app-visitors></app-visitors>
+
+  </div>
+</div>
